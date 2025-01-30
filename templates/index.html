@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Fire Detection Video</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://marketplace.canva.com/EAGPIDVZ0-A/1/0/1131w/canva-peach-aesthetic-background-flyer-IqGDJ_simvM.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FF6F61;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        video {
+            border: 3px solid #333;
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Video for Fire Detection</h2>
+        <form action="{{ url_for('upload_video') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="video" accept="video/*" required>
+            <button type="submit">Upload and Detect</button>
+        </form>
+        <div>
+            <h3>Video Feed</h3>
+            <img id="videoFeed" src="{{ url_for('video_feed') }}" alt="Video feed">
+        </div>
+    </div>
+</body>
+</html>
